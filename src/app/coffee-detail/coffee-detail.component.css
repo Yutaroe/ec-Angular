@@ -1,0 +1,32 @@
+.card {
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-size: 30px;
+  margin-left: -16px;
+  margin-bottom: 15px;
+}
+
+.image {
+  max-width: 500px;
+}
+
+.detail {
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.input {
+  margin: 10px;
+  width: 70%;
+}
+
+button {
+  font-size: 18px;
+  margin: 3px;
+  border-radius: 10px;
+}

@@ -1,0 +1,64 @@
+<app-header></app-header>
+<div *ngIf="coffee">
+  <mat-card class="card">
+    <mat-card-header class="title">
+      {{ coffee.coffee_name }}
+    </mat-card-header>
+    <img mat-card-image [src]="coffee.img" class="image" />
+    <mat-card-content>
+      <div class="detail">{{ coffee.coffee_detail }}</div>
+      <form [formGroup]="orderList" (ngSubmit)="onSubmit()">
+        <div>
+          <mat-form-field appearance="fill" class="input">
+            <mat-label>サイズ</mat-label>
+            <mat-select formControlName="item_size">
+              <mat-option value="M"
+                >Mサイズ:
+                {{ coffee.coffee_priceM | currency: "JPY" }}</mat-option
+              >
+              <mat-option value="L"
+                >Lサイズ:
+                {{ coffee.coffee_priceL | currency: "JPY" }}</mat-option
+              >
+            </mat-select>
+            <mat-error>サイズを選択してください</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill" class="input">
+            <mat-label>個数</mat-label>
+            <mat-select formControlName="item_number">
+              <mat-option value="1">1</mat-option>
+              <mat-option value="2">2</mat-option>
+              <mat-option value="3">3</mat-option>
+            </mat-select>
+            <mat-error>個数を選択してください</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill" class="input">
+            <mat-label>トッピング</mat-label>
+            <mat-select
+              multiple
+              [(ngModel)]="selectToppings"
+              [ngModelOptions]="{ standalone: true }"
+            >
+              <mat-option *ngFor="let item of topping" [value]="item.id">
+                {{ item.topping_name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <mat-card-actions>
+          <button
+            mat-stroked-button
+            color="primary"
+            [disabled]="!orderList.valid"
+          >
+            カートに追加する
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

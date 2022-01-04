@@ -1,0 +1,23 @@
+.thank {
+  font-size: 20px;
+  text-align: center;
+}
+
+.button {
+  margin: 10px;
+  text-align: center;
+}
+
+.img {
+  text-align: center;
+}
+
+img {
+  width: 80%;
+}
+
+button {
+  font-size: 18px;
+  margin: 3px;
+  border-radius: 10px;
+}

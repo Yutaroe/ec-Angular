@@ -1,0 +1,47 @@
+<app-header></app-header>
+<mat-spinner *ngIf="showSpinner" class="spinner"></mat-spinner>
+<div *ngIf="orderCoffee.length !== 0">
+  <div class="parent">
+    <table class="table">
+      <tr>
+        <th>商品名</th>
+        <th>サイズ</th>
+        <th>トッピング</th>
+        <th>数量</th>
+        <th>値段</th>
+        <th>削除</th>
+      </tr>
+      <tr *ngFor="let item of orderCoffee; index as i">
+        <td>
+          <div class="name">{{ item.name }}</div>
+          <div><img src="{{ item.image }}" class="image" /></div>
+        </td>
+        <td>{{ item.item_size }}サイズ</td>
+        <td>
+          <ul>
+            <li *ngFor="let item of item.toppings" class="topping">
+              {{ item }}
+            </li>
+          </ul>
+        </td>
+        <td>{{ item.item_number }}個</td>
+        <td>{{ item.price | currency: "JPY" }}</td>
+
+        <td>
+          <mat-icon (click)="deleteItem(i)" class="delete">
+            delete_outline
+          </mat-icon>
+        </td>
+      </tr>
+    </table>
+    <div class="total">合計金額: {{ total | currency: "JPY" }}</div>
+    <div class="button">
+      <button mat-stroked-button color="primary" routerLink="/confirmation">
+        お届け先情報入力
+      </button>
+    </div>
+  </div>
+</div>
+<div *ngIf="!showSpinner && orderCoffee.length === 0">
+  カートに商品がありません
+</div>

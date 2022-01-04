@@ -1,0 +1,27 @@
+.login-card {
+  width: 400px;
+  height: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-title {
+  font-weight: bold;
+  font-size: 22px;
+  color: #3f51b5;
+}
+
+.login-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.login-botton {
+  width: 100%;
+}
+
+.text {
+  text-align: center;
+}

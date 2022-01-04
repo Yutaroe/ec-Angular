@@ -1,0 +1,14 @@
+.mat-toolbar {
+  height: 76px;
+  margin-bottom: 10px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.icon {
+  font-size: 30px;
+  margin-right: 20px;
+  cursor: pointer;
+}

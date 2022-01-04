@@ -1,0 +1,28 @@
+<app-header></app-header>
+<table class="table">
+  <tr>
+    <th>お届け日</th>
+    <th>商品名</th>
+    <th>サイズ</th>
+    <th>トッピング</th>
+    <th>数量</th>
+    <th>値段</th>
+  </tr>
+  <tr *ngFor="let item of orderCoffee; index as i">
+    <td>{{ item.day }}</td>
+    <td>
+      <div class="name">{{ item.name }}</div>
+      <div>
+        <img src="{{ item.image }}" class="image" />
+      </div>
+    </td>
+    <td>{{ item.item_size }}サイズ</td>
+    <td>
+      <ul>
+        <li *ngFor="let item of item.toppings" class="topping">{{ item }}</li>
+      </ul>
+    </td>
+    <td>{{ item.item_number }}個</td>
+    <td>{{ item.price | currency: "JPY" }}</td>
+  </tr>
+</table>

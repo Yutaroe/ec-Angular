@@ -1,0 +1,35 @@
+.display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+.card {
+  width: 360px;
+  height: 360px;
+  border: solid;
+  cursor: pointer;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.content {
+  margin-left: -16px;
+  width: 392px;
+  height: 62px;
+  position: absolute;
+  top: 330px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 23px;
+}
+
+.size {
+  margin-left: 10px;
+}

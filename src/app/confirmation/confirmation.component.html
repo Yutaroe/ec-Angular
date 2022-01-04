@@ -1,0 +1,110 @@
+<app-header></app-header>
+<div class="parent">
+  <table class="table">
+    <tr>
+      <th>商品名</th>
+      <th>サイズ</th>
+      <th>トッピング</th>
+      <th>数量</th>
+      <th>値段</th>
+    </tr>
+    <tr *ngFor="let item of orderCoffee; index as i">
+      <td>
+        <div class="name">{{ item.name }}</div>
+        <div><img src="{{ item.image }}" class="image" /></div>
+      </td>
+      <td>{{ item.item_size }}サイズ</td>
+      <td>
+        <ul>
+          <li *ngFor="let item of item.toppings" class="topping">{{ item }}</li>
+        </ul>
+      </td>
+      <td>{{ item.item_number }}個</td>
+      <td>{{ item.price | currency: "JPY" }}円</td>
+    </tr>
+  </table>
+  <div class="total">合計金額: {{ total | currency: "JPY" }}</div>
+
+  <h2>お届け先情報入力</h2>
+  <form [formGroup]="address" (ngSubmit)="onSubmit()" class="form">
+    <div>
+      <mat-form-field>
+        <mat-label>お名前</mat-label>
+        <input matInput formControlName="order_name" />
+        <mat-error>お名前は必須です</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>郵便番号(ハイフン無し)</mat-label>
+        <input
+          matInput
+          formControlName="addressnumber"
+          pattern="{{ addressNumberPattern }}"
+        />
+        <mat-error>郵便番号の形式が正しくありません</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>住所</mat-label>
+        <input matInput formControlName="address" />
+        <mat-error>住所は必須です</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          formControlName="email"
+          type="email"
+          pattern="{{ emailPattern }}"
+        />
+        <mat-error>メールアドレスの形式が正しくありません</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>電話番号</mat-label>
+        <input matInput formControlName="tel" />
+        <mat-error>電話番号は必須です</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>お届け日時</mat-label>
+        <input
+          matInput
+          [min]="minDate"
+          [max]="maxDate"
+          [matDatepicker]="picker"
+          formControlName="order_date"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error>お届け日時は必須です</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>お届け時間</mat-label>
+        <input matInput formControlName="order_time" type="time" step="1800" />
+        <mat-error>お届け時間は必須です</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>お支払い方法</mat-label>
+        <mat-select formControlName="status">
+          <mat-option value="1">現金引き換え</mat-option>
+          <mat-option value="2">引き落とし</mat-option>
+        </mat-select>
+        <mat-error>お支払い方法を選択してください</mat-error>
+      </mat-form-field>
+    </div>
+    <button mat-stroked-button color="primary" [disabled]="!address.valid">
+      注文する
+    </button>
+  </form>
+</div>

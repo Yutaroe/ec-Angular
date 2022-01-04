@@ -1,0 +1,32 @@
+.table {
+  margin: 0 auto;
+  width: 80%;
+  border-collapse: collapse;
+  border-spacing: 20px 20px;
+  text-align: center;
+}
+
+table,
+td,
+th {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.name {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.image {
+  width: 200px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.topping {
+  text-align: left;
+}

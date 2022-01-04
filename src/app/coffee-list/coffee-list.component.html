@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="display">
+  <mat-card
+    class="card"
+    *ngFor="let list of coffeeList"
+    routerLink="/detail/{{ list.id }}"
+  >
+    <img mat-card-image [src]="list.img" [alt]="list.coffee_name" />
+    <mat-card-content class="content">
+      <div>
+        <div class="text">{{ list.coffee_name }}</div>
+        <span class="size">
+          Mサイズ：{{ list.coffee_priceM | currency: "JPY" }}
+        </span>
+        <span class="size">
+          Lサイズ：{{ list.coffee_priceL | currency: "JPY" }}
+        </span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
