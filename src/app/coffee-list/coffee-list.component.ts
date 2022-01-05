@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CoffeeService } from '../coffee.service';
 import { COFFEE } from '../type';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-coffee-list',
@@ -9,6 +10,7 @@ import { COFFEE } from '../type';
 })
 export class CoffeeListComponent implements OnInit {
   coffeeList: COFFEE[] = [];
+  showSpinner = false;
 
   constructor(private coffeeService: CoffeeService) {}
 
@@ -17,8 +19,12 @@ export class CoffeeListComponent implements OnInit {
   }
 
   getCoffeeList(): void {
-    this.coffeeService.getCoffeeList().subscribe((list) => {
-      this.coffeeList = list;
-    });
+    this.showSpinner = true;
+    this.coffeeService
+      .getCoffeeList()
+      .pipe(tap(() => (this.showSpinner = false)))
+      .subscribe((list) => {
+        this.coffeeList = list;
+      });
   }
 }

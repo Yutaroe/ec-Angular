@@ -1,4 +1,5 @@
 <app-header></app-header>
+<mat-spinner *ngIf="showSpinner" class="spinner"></mat-spinner>
 <table class="table" *ngIf="orderCoffee.length !== 0">
   <tr>
     <th>お届け日</th>
@@ -26,7 +27,7 @@
     <td>{{ item.price | currency: "JPY" }}</td>
   </tr>
 </table>
-<div *ngIf="orderCoffee.length === 0">
+<div *ngIf="!showSpinner && orderCoffee.length === 0">
   <div class="noCart">購入した商品はありません</div>
   <div class="button">
     <button mat-stroked-button color="primary" routerLink="/">

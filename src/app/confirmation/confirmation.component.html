@@ -1,6 +1,8 @@
 <app-header></app-header>
+<mat-spinner *ngIf="showSpinner" class="spinner"></mat-spinner>
+
 <div class="parent">
-  <table class="table">
+  <table class="table" *ngIf="!showSpinner">
     <tr>
       <th>商品名</th>
       <th>サイズ</th>

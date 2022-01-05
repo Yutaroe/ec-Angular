@@ -19,6 +19,7 @@ export class CoffeeDetailComponent implements OnInit {
   selectToppings: number[] = [];
 
   checkBoxFormArray: FormArray | undefined;
+  showSpinner = false;
 
   orderList: FormGroup = this.fb.group({
     item_number: [null, Validators.required],
@@ -53,16 +54,20 @@ export class CoffeeDetailComponent implements OnInit {
   }
 
   getCart(): void {
-    this.authenService.getCart().subscribe((data) =>
-      data.forEach((mycart) => {
-        if (
-          mycart.userCart === Number(localStorage['user']) &&
-          mycart.status === 0
-        ) {
-          this.cart = mycart;
-        }
-      })
-    );
+    this.showSpinner = true;
+    this.authenService
+      .getCart()
+      .pipe(tap(() => (this.showSpinner = false)))
+      .subscribe((data) =>
+        data.forEach((mycart) => {
+          if (
+            mycart.userCart === Number(localStorage['user']) &&
+            mycart.status === 0
+          ) {
+            this.cart = mycart;
+          }
+        })
+      );
   }
 
   onSubmit() {

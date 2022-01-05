@@ -61,3 +61,7 @@ button {
   margin: 3px;
   border-radius: 10px;
 }
+
+.spinner {
+  margin: 0 auto;
+}

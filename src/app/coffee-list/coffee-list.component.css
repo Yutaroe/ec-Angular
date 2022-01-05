@@ -5,6 +5,10 @@
   overflow: hidden;
 }
 
+.spinner {
+  margin: 0 auto;
+}
+
 .card {
   width: 360px;
   height: 360px;

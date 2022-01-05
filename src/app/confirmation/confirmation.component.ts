@@ -28,6 +28,8 @@ export class ConfirmationComponent implements OnInit {
   minDate: Date | undefined;
   maxDate: Date | undefined;
 
+  showSpinner = false;
+
   emailPattern =
     '^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*.)+[a-zA-Z]{2,}$';
   addressNumberPattern = '^[0-9]{7}$';
@@ -74,6 +76,7 @@ export class ConfirmationComponent implements OnInit {
   }
 
   getCart(): void {
+    this.showSpinner = true;
     this.authenService
       .getCart()
       .pipe(
@@ -88,7 +91,8 @@ export class ConfirmationComponent implements OnInit {
           })
         ),
         mergeMap(() => this.getOrderCoffee()),
-        tap(() => this.getCoffeeById())
+        tap(() => this.getCoffeeById()),
+        tap(() => (this.showSpinner = false))
       )
       .subscribe();
   }

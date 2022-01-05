@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CoffeeService {
-  private apiUrl = 'http://localhost:8000/api/';
+  private apiUrl = 'http://3.145.158.138:8000/api/';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),

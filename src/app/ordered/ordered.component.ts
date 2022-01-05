@@ -21,6 +21,7 @@ export class OrderedComponent implements OnInit {
   cart: CART[] = [];
   orderList: ORDEREDCOFFEE[] = [];
   orderCoffee: ORDERCOFFEEWITHNAME[] = [];
+  showSpinner: boolean = false;
 
   constructor(
     private authenService: AuthenService,
@@ -44,6 +45,7 @@ export class OrderedComponent implements OnInit {
   }
 
   getCart(): void {
+    this.showSpinner = true;
     this.authenService
       .getCart()
       .pipe(
@@ -58,7 +60,8 @@ export class OrderedComponent implements OnInit {
           })
         ),
         mergeMap(() => this.getOrderCoffee()),
-        tap(() => this.getCoffeeById())
+        tap(() => this.getCoffeeById()),
+        tap(() => (this.showSpinner = false))
       )
       .subscribe();
   }

@@ -44,3 +44,11 @@ button {
 .button {
   text-align: center;
 }
+
+.noCart {
+  text-align: center;
+}
+
+.spinner {
+  margin: 0 auto;
+}

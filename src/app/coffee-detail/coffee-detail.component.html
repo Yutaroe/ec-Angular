@@ -1,4 +1,6 @@
 <app-header></app-header>
+<mat-spinner *ngIf="showSpinner" class="spinner"></mat-spinner>
+
 <div *ngIf="coffee">
   <mat-card class="card">
     <mat-card-header class="title">
