@@ -36,12 +36,30 @@
     </table>
     <div class="total">合計金額: {{ total | currency: "JPY" }}</div>
     <div class="button">
-      <button mat-stroked-button color="primary" routerLink="/confirmation">
+      <button
+        mat-stroked-button
+        color="primary"
+        routerLink="/confirmation"
+        *ngIf="cart.length !== 0"
+      >
         お届け先情報入力
+      </button>
+      <button
+        mat-stroked-button
+        color="primary"
+        routerLink="/login"
+        *ngIf="cart.length === 0"
+      >
+        ログインして購入する
       </button>
     </div>
   </div>
 </div>
 <div *ngIf="!showSpinner && orderCoffee.length === 0">
-  カートに商品がありません
+  <div class="noCart">カートに商品がありません</div>
+  <div class="button">
+    <button mat-stroked-button color="primary" routerLink="/">
+      商品を追加する
+    </button>
+  </div>
 </div>

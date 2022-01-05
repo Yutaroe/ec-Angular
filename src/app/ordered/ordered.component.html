@@ -1,5 +1,5 @@
 <app-header></app-header>
-<table class="table">
+<table class="table" *ngIf="orderCoffee.length !== 0">
   <tr>
     <th>お届け日</th>
     <th>商品名</th>
@@ -26,3 +26,11 @@
     <td>{{ item.price | currency: "JPY" }}</td>
   </tr>
 </table>
+<div *ngIf="orderCoffee.length === 0">
+  <div class="noCart">購入した商品はありません</div>
+  <div class="button">
+    <button mat-stroked-button color="primary" routerLink="/">
+      商品を購入する
+    </button>
+  </div>
+</div>

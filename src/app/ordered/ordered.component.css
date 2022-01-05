@@ -30,3 +30,17 @@ ul {
 .topping {
   text-align: left;
 }
+
+button {
+  font-size: 18px;
+  margin: 3px;
+  border-radius: 10px;
+}
+
+.noCart {
+  text-align: center;
+}
+
+.button {
+  text-align: center;
+}

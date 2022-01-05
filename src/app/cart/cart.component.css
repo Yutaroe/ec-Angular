@@ -64,3 +64,7 @@ button {
   margin: 3px;
   border-radius: 10px;
 }
+
+.noCart {
+  text-align: center;
+}
