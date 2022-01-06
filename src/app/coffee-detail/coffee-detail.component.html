@@ -14,14 +14,14 @@
           <mat-form-field appearance="fill" class="input">
             <mat-label>サイズ</mat-label>
             <mat-select formControlName="item_size">
-              <mat-option value="M"
-                >Mサイズ:
-                {{ coffee.coffee_priceM | currency: "JPY" }}</mat-option
-              >
-              <mat-option value="L"
-                >Lサイズ:
-                {{ coffee.coffee_priceL | currency: "JPY" }}</mat-option
-              >
+              <mat-option value="M">
+                Mサイズ:
+                {{ coffee.coffee_priceM | currency: "JPY" }}
+              </mat-option>
+              <mat-option value="L">
+                Lサイズ:
+                {{ coffee.coffee_priceL | currency: "JPY" }}
+              </mat-option>
             </mat-select>
             <mat-error>サイズを選択してください</mat-error>
           </mat-form-field>

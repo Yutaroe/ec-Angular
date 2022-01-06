@@ -1,10 +1,50 @@
 <app-header></app-header>
+
+<div class="search">
+  <mat-form-field appearance="fill">
+    <mat-label>商品を検索</mat-label>
+    <input
+      matInput
+      type="text"
+      [(ngModel)]="searchValue"
+      autocomplete="on"
+      list="coffeeList"
+    />
+    <datalist id="coffeeList">
+      <option
+        *ngFor="let coffee of coffeeList"
+        value="{{ coffee.coffee_name }}"
+      ></option>
+    </datalist>
+    <button
+      *ngIf="searchValue"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="searchValue = ''"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-stroked-button color="primary" (click)="searchItem()">
+    検索
+  </button>
+  <div>
+    <button mat-stroked-button color="primary" (click)="heighCostSort()">
+      高い順
+    </button>
+    <button mat-stroked-button color="accent" (click)="lowCostSort()">
+      低い順
+    </button>
+  </div>
+</div>
+
 <mat-spinner *ngIf="showSpinner" class="spinner"></mat-spinner>
 
 <div class="display">
   <mat-card
     class="card"
-    *ngFor="let list of coffeeList"
+    *ngFor="let list of searchCoffee"
     routerLink="/detail/{{ list.id }}"
   >
     <img mat-card-image [src]="list.img" [alt]="list.coffee_name" />

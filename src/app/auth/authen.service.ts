@@ -39,6 +39,7 @@ export class AuthenService {
         catchError(this.errorRegister({})),
         map((newUser) => newUser as USER),
         mergeMap((newUser) => this.createCart(newUser.user.id)),
+        tap(() => alert('会員登録に成功しました、ログインをしてください')),
         tap(() => this.router.navigate(['/login']))
       )
       .subscribe();

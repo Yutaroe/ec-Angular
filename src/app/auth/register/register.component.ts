@@ -24,7 +24,6 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     if (this.register.value.password1 === this.register.value.password2) {
       this.authenService.register(this.register.value);
-      alert('会員登録に成功しました。ログインをしてください');
     } else {
       alert('パスワードが一致しません');
     }

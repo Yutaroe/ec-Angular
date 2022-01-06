@@ -91,8 +91,20 @@
     <div>
       <mat-form-field>
         <mat-label>お届け時間</mat-label>
-        <input matInput formControlName="order_time" type="time" step="1800" />
-        <mat-error>お届け時間は必須です</mat-error>
+        <mat-select formControlName="order_time">
+          <mat-option value="10">10時</mat-option>
+          <mat-option value="11">11時</mat-option>
+          <mat-option value="12">12時</mat-option>
+          <mat-option value="13">13時</mat-option>
+          <mat-option value="14">14時</mat-option>
+          <mat-option value="15">15時</mat-option>
+          <mat-option value="16">16時</mat-option>
+          <mat-option value="17">17時</mat-option>
+          <mat-option value="18">18時</mat-option>
+          <mat-option value="19">19時</mat-option>
+          <mat-option value="20">20時</mat-option>
+        </mat-select>
+        <mat-error>サイズを選択してください</mat-error>
       </mat-form-field>
     </div>
     <div>
