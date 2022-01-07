@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { OrderedComponent } from './ordered.component';
 
@@ -8,9 +10,9 @@ describe('OrderedComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OrderedComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule, RouterModule.forRoot([])],
+      declarations: [OrderedComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

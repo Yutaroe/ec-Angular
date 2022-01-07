@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterModule } from '@angular/router';
 
 import { CoffeeDetailComponent } from './coffee-detail.component';
 
@@ -8,9 +11,13 @@ describe('CoffeeDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CoffeeDetailComponent ]
-    })
-    .compileComponents();
+      imports: [
+        ReactiveFormsModule,
+        HttpClientTestingModule,
+        RouterModule.forRoot([]),
+      ],
+      declarations: [CoffeeDetailComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

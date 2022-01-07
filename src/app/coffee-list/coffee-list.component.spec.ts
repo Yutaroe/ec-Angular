@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { CoffeeListComponent } from './coffee-list.component';
 
@@ -8,9 +9,9 @@ describe('CoffeeListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CoffeeListComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule],
+      declarations: [CoffeeListComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
