@@ -26,6 +26,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  showPass() {
+    this.hide = !this.hide;
+  }
+
   onSubmit() {
     this.authenService
       .login(this.loginUser.value)

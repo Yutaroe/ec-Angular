@@ -4,7 +4,7 @@
     <mat-card-title class="login-title">ログイン</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <form [formGroup]="loginUser" (ngSubmit)="onSubmit()">
+    <form [formGroup]="loginUser">
       <div>
         <mat-form-field class="login-field">
           <input
@@ -24,7 +24,7 @@
             placeholder="パスワード"
             formControlName="password"
           />
-          <mat-icon matSuffix (click)="hide = !hide">
+          <mat-icon matSuffix (click)="showPass()">
             {{ hide ? "visibility" : "visibility_off" }}
           </mat-icon>
           <mat-error>パスワードは必須です</mat-error>
@@ -36,6 +36,7 @@
         color="primary"
         [disabled]="!loginUser.valid"
         class="login-botton"
+        (click)="onSubmit()"
       >
         ログイン
       </button>

@@ -26,14 +26,29 @@
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
-  <button mat-stroked-button color="primary" (click)="searchItem()">
+  <button
+    mat-stroked-button
+    color="primary"
+    (click)="searchItem()"
+    data-content="search"
+  >
     検索
   </button>
   <div>
-    <button mat-stroked-button color="primary" (click)="heighCostSort()">
+    <button
+      mat-stroked-button
+      color="primary"
+      (click)="heighCostSort()"
+      data-content="heigh"
+    >
       高い順
     </button>
-    <button mat-stroked-button color="accent" (click)="lowCostSort()">
+    <button
+      mat-stroked-button
+      color="accent"
+      (click)="lowCostSort()"
+      data-content="low"
+    >
       低い順
     </button>
   </div>

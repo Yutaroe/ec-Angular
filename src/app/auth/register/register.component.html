@@ -4,7 +4,7 @@
     <mat-card-title class="register-title">新規登録</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <form [formGroup]="register" (ngSubmit)="onSubmit()">
+    <form [formGroup]="register">
       <div>
         <mat-form-field class="register-field">
           <input
@@ -19,20 +19,20 @@
       <div>
         <mat-form-field class="register-field">
           <input
-            [type]="hide1 ? 'password' : 'text'"
+            [type]="hide ? 'password' : 'text'"
             matInput
             placeholder="パスワード(8文字以上)"
             formControlName="password1"
           />
-          <mat-icon matSuffix (click)="hide1 = !hide1">
-            {{ hide1 ? "visibility" : "visibility_off" }}
+          <mat-icon matSuffix (click)="showPass()">
+            {{ hide ? "visibility" : "visibility_off" }}
           </mat-icon>
           <mat-error>パスワードは必須です</mat-error>
         </mat-form-field>
       </div>
       <mat-form-field class="register-field">
         <input
-          [type]="hide1 ? 'password' : 'text'"
+          [type]="hide ? 'password' : 'text'"
           matInput
           placeholder="パスワード再入力"
           formControlName="password2"
@@ -44,6 +44,7 @@
         color="primary"
         [disabled]="!register.valid"
         class="register-botton"
+        (click)="onSubmit()"
       >
         新規登録
       </button>

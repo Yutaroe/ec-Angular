@@ -14,12 +14,15 @@ export class RegisterComponent implements OnInit {
     password2: ['', [Validators.required, Validators.minLength(8)]],
   });
 
-  hide1 = true;
-  hide2 = true;
+  hide = true;
 
   constructor(private fb: FormBuilder, private authenService: AuthenService) {}
 
   ngOnInit(): void {}
+
+  showPass() {
+    this.hide = !this.hide;
+  }
 
   onSubmit() {
     if (this.register.value.password1 === this.register.value.password2) {

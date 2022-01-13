@@ -7,7 +7,13 @@
     <mat-icon aria-hidden="false" *ngIf="!id" routerLink="/login" class="icon">
       login
     </mat-icon>
-    <mat-icon aria-hidden="false" (click)="logout()" *ngIf="id" class="icon">
+    <mat-icon
+      aria-hidden="false"
+      (click)="logout()"
+      *ngIf="id"
+      class="icon"
+      data-content="logout"
+    >
       logout
     </mat-icon>
     <mat-icon aria-hidden="false" *ngIf="id" routerLink="/cart" class="icon">
